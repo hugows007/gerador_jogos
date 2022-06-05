@@ -15,6 +15,7 @@ class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       title: Text(
         title ?? '',
         style: const TextStyle(
@@ -23,17 +24,27 @@ class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.white,
         ),
       ),
-      leading: showLogo! ? const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5.0),
-        child: Image(
-          image: AssetImage(ImagesUri.loteria),
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: <Color>[Color(0xff277eb6), Color(0xff058ce1)]),
         ),
-      ) : null,
-      leadingWidth: 50,
+      ),
+      leading: showLogo!
+          ? const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.0),
+              child: Image(
+                image: AssetImage(ImagesUri.loteria),
+              ),
+            )
+          : null,
+      leadingWidth: 60,
       backgroundColor: Colors.grey,
     );
   }
 
   @override
-  Size get preferredSize => Size(Get.width, Get.height / 20);
+  Size get preferredSize => Size(Get.width, Get.height / 18);
 }

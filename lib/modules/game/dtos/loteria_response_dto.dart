@@ -1,4 +1,4 @@
-class LotofacilResponseDto {
+class LoteriaResponseDto {
   bool? acumulado;
   String? dataApuracao;
   String? dataProximoConcurso;
@@ -20,7 +20,7 @@ class LotofacilResponseDto {
   num? numeroConcursoProximo;
   num? numeroJogo;
   String? observacao;
-  Null? premiacaoContingencia;
+  dynamic premiacaoContingencia;
   String? tipoJogo;
   num? tipoPublicacao;
   bool? ultimoConcurso;
@@ -32,7 +32,7 @@ class LotofacilResponseDto {
   num? valorSaldoReservaGarantidora;
   num? valorTotalPremioFaixaUm;
 
-  LotofacilResponseDto(
+  LoteriaResponseDto(
       {this.acumulado,
       this.dataApuracao,
       this.dataProximoConcurso,
@@ -66,7 +66,7 @@ class LotofacilResponseDto {
       this.valorSaldoReservaGarantidora,
       this.valorTotalPremioFaixaUm});
 
-  LotofacilResponseDto.fromJson(Map<String, dynamic> json) {
+  LoteriaResponseDto.fromJson(Map<String, dynamic> json) {
     acumulado = json['acumulado'];
     dataApuracao = json['dataApuracao'];
     dataProximoConcurso = json['dataProximoConcurso'];
@@ -81,13 +81,13 @@ class LotofacilResponseDto {
       listaMunicipioUFGanhadores = <ListaMunicipioUFGanhadores>[];
       json['listaMunicipioUFGanhadores'].forEach((v) {
         listaMunicipioUFGanhadores!
-            .add(new ListaMunicipioUFGanhadores.fromJson(v));
+            .add(ListaMunicipioUFGanhadores.fromJson(v));
       });
     }
     if (json['listaRateioPremio'] != null) {
       listaRateioPremio = <ListaRateioPremio>[];
       json['listaRateioPremio'].forEach((v) {
-        listaRateioPremio!.add(new ListaRateioPremio.fromJson(v));
+        listaRateioPremio!.add(ListaRateioPremio.fromJson(v));
       });
     }
     listaResultadoEquipeEsportiva = json['listaResultadoEquipeEsportiva'];
@@ -114,46 +114,46 @@ class LotofacilResponseDto {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['acumulado'] = this.acumulado;
-    data['dataApuracao'] = this.dataApuracao;
-    data['dataProximoConcurso'] = this.dataProximoConcurso;
-    data['dezenasSorteadasOrdemSorteio'] = this.dezenasSorteadasOrdemSorteio;
-    data['exibirDetalhamentoPorCidade'] = this.exibirDetalhamentoPorCidade;
-    data['id'] = this.id;
-    data['indicadorConcursoEspecial'] = this.indicadorConcursoEspecial;
-    data['listaDezenas'] = this.listaDezenas;
-    data['listaDezenasSegundoSorteio'] = this.listaDezenasSegundoSorteio;
-    if (this.listaMunicipioUFGanhadores != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['acumulado'] = acumulado;
+    data['dataApuracao'] = dataApuracao;
+    data['dataProximoConcurso'] = dataProximoConcurso;
+    data['dezenasSorteadasOrdemSorteio'] = dezenasSorteadasOrdemSorteio;
+    data['exibirDetalhamentoPorCidade'] = exibirDetalhamentoPorCidade;
+    data['id'] = id;
+    data['indicadorConcursoEspecial'] = indicadorConcursoEspecial;
+    data['listaDezenas'] = listaDezenas;
+    data['listaDezenasSegundoSorteio'] = listaDezenasSegundoSorteio;
+    if (listaMunicipioUFGanhadores != null) {
       data['listaMunicipioUFGanhadores'] =
-          this.listaMunicipioUFGanhadores!.map((v) => v.toJson()).toList();
+          listaMunicipioUFGanhadores!.map((v) => v.toJson()).toList();
     }
-    if (this.listaRateioPremio != null) {
+    if (listaRateioPremio != null) {
       data['listaRateioPremio'] =
-          this.listaRateioPremio!.map((v) => v.toJson()).toList();
+          listaRateioPremio!.map((v) => v.toJson()).toList();
     }
-    data['listaResultadoEquipeEsportiva'] = this.listaResultadoEquipeEsportiva;
-    data['localSorteio'] = this.localSorteio;
-    data['nomeMunicipioUFSorteio'] = this.nomeMunicipioUFSorteio;
-    data['nomeTimeCoracaoMesSorte'] = this.nomeTimeCoracaoMesSorte;
-    data['numero'] = this.numero;
-    data['numeroConcursoAnterior'] = this.numeroConcursoAnterior;
-    data['numeroConcursoFinal_0_5'] = this.numeroConcursoFinal05;
-    data['numeroConcursoProximo'] = this.numeroConcursoProximo;
-    data['numeroJogo'] = this.numeroJogo;
-    data['observacao'] = this.observacao;
-    data['premiacaoContingencia'] = this.premiacaoContingencia;
-    data['tipoJogo'] = this.tipoJogo;
-    data['tipoPublicacao'] = this.tipoPublicacao;
-    data['ultimoConcurso'] = this.ultimoConcurso;
-    data['valorArrecadado'] = this.valorArrecadado;
-    data['valorAcumuladoConcurso_0_5'] = this.valorAcumuladoConcurso05;
+    data['listaResultadoEquipeEsportiva'] = listaResultadoEquipeEsportiva;
+    data['localSorteio'] = localSorteio;
+    data['nomeMunicipioUFSorteio'] = nomeMunicipioUFSorteio;
+    data['nomeTimeCoracaoMesSorte'] = nomeTimeCoracaoMesSorte;
+    data['numero'] = numero;
+    data['numeroConcursoAnterior'] = numeroConcursoAnterior;
+    data['numeroConcursoFinal_0_5'] = numeroConcursoFinal05;
+    data['numeroConcursoProximo'] = numeroConcursoProximo;
+    data['numeroJogo'] = numeroJogo;
+    data['observacao'] = observacao;
+    data['premiacaoContingencia'] = premiacaoContingencia;
+    data['tipoJogo'] = tipoJogo;
+    data['tipoPublicacao'] = tipoPublicacao;
+    data['ultimoConcurso'] = ultimoConcurso;
+    data['valorArrecadado'] = valorArrecadado;
+    data['valorAcumuladoConcurso_0_5'] = valorAcumuladoConcurso05;
     data['valorAcumuladoConcursoEspecial'] =
-        this.valorAcumuladoConcursoEspecial;
-    data['valorAcumuladoProximoConcurso'] = this.valorAcumuladoProximoConcurso;
-    data['valorEstimadoProximoConcurso'] = this.valorEstimadoProximoConcurso;
-    data['valorSaldoReservaGarantidora'] = this.valorSaldoReservaGarantidora;
-    data['valorTotalPremioFaixaUm'] = this.valorTotalPremioFaixaUm;
+        valorAcumuladoConcursoEspecial;
+    data['valorAcumuladoProximoConcurso'] = valorAcumuladoProximoConcurso;
+    data['valorEstimadoProximoConcurso'] = valorEstimadoProximoConcurso;
+    data['valorSaldoReservaGarantidora'] = valorSaldoReservaGarantidora;
+    data['valorTotalPremioFaixaUm'] = valorTotalPremioFaixaUm;
     return data;
   }
 }
@@ -184,13 +184,13 @@ class ListaMunicipioUFGanhadores {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['ganhadores'] = this.ganhadores;
-    data['municipio'] = this.municipio;
-    data['nomeFatansiaUL'] = this.nomeFatansiaUL;
-    data['posicao'] = this.posicao;
-    data['serie'] = this.serie;
-    data['uf'] = this.uf;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['ganhadores'] = ganhadores;
+    data['municipio'] = municipio;
+    data['nomeFatansiaUL'] = nomeFatansiaUL;
+    data['posicao'] = posicao;
+    data['serie'] = serie;
+    data['uf'] = uf;
     return data;
   }
 }
@@ -215,11 +215,11 @@ class ListaRateioPremio {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['descricaoFaixa'] = this.descricaoFaixa;
-    data['faixa'] = this.faixa;
-    data['numeroDeGanhadores'] = this.numeroDeGanhadores;
-    data['valorPremio'] = this.valorPremio;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['descricaoFaixa'] = descricaoFaixa;
+    data['faixa'] = faixa;
+    data['numeroDeGanhadores'] = numeroDeGanhadores;
+    data['valorPremio'] = valorPremio;
     return data;
   }
 }

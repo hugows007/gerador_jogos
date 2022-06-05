@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gerador_jogos/core/cookie_manager.dart';
+import 'package:gerador_jogos/modules/global/constants/global.dart';
 import 'package:get/get.dart';
 
 class OptionComponent extends StatelessWidget {
@@ -18,7 +20,11 @@ class OptionComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.toNamed(route, arguments: optionGame),
+      onTap: () {
+        CookieManager.addToCookie(
+            GlobalConstants.cookieGameType, optionGame, 2592000);
+        Get.toNamed(route);
+      },
       child: Column(
         children: [
           Padding(

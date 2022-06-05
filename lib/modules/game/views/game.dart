@@ -4,6 +4,7 @@ import 'package:gerador_jogos/modules/game/states/game.dart';
 import 'package:gerador_jogos/modules/game/views/components/game.dart';
 import 'package:gerador_jogos/modules/global/components/appbar.dart';
 import 'package:gerador_jogos/modules/global/components/footer.dart';
+import 'package:gerador_jogos/modules/global/components/loading.dart';
 import 'package:get/get.dart';
 
 class GameView extends GetView<GameController> {
@@ -16,11 +17,7 @@ class GameView extends GetView<GameController> {
       bottomSheet: const FooterComponent(),
       body: Obx(
         () => controller.gameState.value == GameState.loading
-            ? const Center(
-                child: CircularProgressIndicator(
-                  color: Colors.grey,
-                ),
-              )
+            ? const LoadingComponent()
             : const GameComponent(),
       ),
     );
