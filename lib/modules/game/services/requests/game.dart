@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:gerador_jogos/core/cookie_manager.dart';
@@ -10,15 +11,27 @@ import 'package:gerador_jogos/modules/global/constants/global.dart';
 mixin GameRequest {
   GameController get _controller => GameController.instance;
 
+  _header() {
+    return {
+      HttpHeaders.contentTypeHeader: 'application/json',
+      HttpHeaders.accessControlAllowOriginHeader: 'true',
+      HttpHeaders.accessControlAllowMethodsHeader: 'POST, GET, OPTIONS, DELETE',
+      HttpHeaders.accessControlRequestHeadersHeader: 'origin, x-requested-with',
+      'Origin': 'https://servicebus2.caixa.gov.br'
+    };
+  }
+
   Future<void> requestChargeLastResult(String url) async {
-    Response response = await _controller.client.get(url);
+    Response response =
+        await _controller.client.get(url, options: Options(headers: _header()));
     _controller.loteriaResponseDto = LoteriaResponseDto.fromJson(response.data);
   }
 
   Future<void> requestLastResults(num lastGameNumber) async {
     for (int i = 1; i <= _controller.lastGamesToProcess; i++) {
-      Response response =
-          await _controller.client.get('${Url.urlLotofacil}/$lastGameNumber');
+      Response response = await _controller.client.get(
+          '${Url.urlLotofacil}/$lastGameNumber',
+          options: Options(headers: _header()));
       for (var element
           in LoteriaResponseDto.fromJson(response.data).listaDezenas!) {
         _controller.lastResults.add(element);
