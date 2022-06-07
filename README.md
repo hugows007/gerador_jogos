@@ -13,7 +13,7 @@ Um projeto desenvolvido para fins de estudo da vertente do Flutter para o contex
 
 ## Comandos uteis
 
-- flutter build web --web-renderer canvaskit
+- flutter build web
 - flutter format .
 - flutter pub get
 
