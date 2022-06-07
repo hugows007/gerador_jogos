@@ -28,7 +28,9 @@ mixin GameRequest {
     }
 
     DateTime now = DateTime.now();
-    DateTime expiration = DateTime(now.year, now.month, now.day, 23, 59, 59);
+    DateTime expiration = (now.hour <= 21 && now.minute <= 30)
+        ? DateTime(now.year, now.month, now.day, 21, 30, 00)
+        : DateTime(now.year, now.month, now.day, 23, 59, 00);
     Duration diff = expiration.difference(now);
 
     CookieManager.addToCookie(GlobalConstants.cookieLastResults,
