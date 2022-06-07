@@ -8,8 +8,8 @@ class GlobalBinding implements Bindings {
   }
 
   static void init() {
-    Get.lazyPut<GlobalController>(
-      () => GlobalController(),
+    Get.put(
+      GlobalController(),
     );
   }
 }
