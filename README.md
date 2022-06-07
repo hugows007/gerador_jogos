@@ -7,10 +7,11 @@ Um projeto desenvolvido para fins de estudo da vertente do Flutter para o contex
 ## Dependências
 
 1. get
-1. responsive_framework
-1. dio
-1. intl
-1. universal_html
+2. responsive_framework
+3. dio
+4. intl
+5. universal_html
+6. package_info_plus
 
 ## Comandos uteis
 

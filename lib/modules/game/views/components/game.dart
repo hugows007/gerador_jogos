@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/modules/game/controllers/game.dart';
 import 'package:gerador_jogos/modules/game/views/components/widget/result.dart';
-import 'package:gerador_jogos/modules/global/components/loading.dart';
+import 'package:gerador_jogos/modules/global/views/components/loading.dart';
 import 'package:get/get.dart';
 
 class GameComponent extends GetView<GameController> {
