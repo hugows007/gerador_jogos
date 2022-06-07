@@ -19,7 +19,8 @@ mixin GameRequest {
     for (int i = 1; i <= _controller.lastGamesToProcess; i++) {
       Response response =
           await _controller.client.get('${Url.urlLotofacil}/$lastGameNumber');
-      for (var element in LoteriaResponseDto.fromJson(response.data).listaDezenas!) {
+      for (var element
+          in LoteriaResponseDto.fromJson(response.data).listaDezenas!) {
         _controller.lastResults.add(element);
       }
 
@@ -30,9 +31,7 @@ mixin GameRequest {
     DateTime expiration = DateTime(now.year, now.month, now.day, 23, 59, 59);
     Duration diff = expiration.difference(now);
 
-    CookieManager.addToCookie(
-        GlobalConstants.cookieLastResults,
-        json.encode(_controller.lastResults),
-        diff.inSeconds);
+    CookieManager.addToCookie(GlobalConstants.cookieLastResults,
+        json.encode(_controller.lastResults), diff.inSeconds);
   }
 }

@@ -13,7 +13,7 @@ class GameView extends GetView<GameController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarComponent(title: 'Voltar'),
+      appBar: const AppBarComponent(),
       bottomSheet: const FooterComponent(),
       body: Obx(
         () => controller.gameState.value == GameState.loading

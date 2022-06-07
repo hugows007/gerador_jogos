@@ -14,6 +14,7 @@ mixin GameUtil {
     _controller.moreNumbersParImparLastResults.clear();
     _controller.moreNumbersPrimosLastResults.clear();
     _controller.randomGamesParImpar.clear();
+    _controller.randomGamesPadraoXDoisJogos.clear();
     _controller.randomGamesPadraoX.clear();
   }
 

@@ -1,6 +1,6 @@
 import 'package:gerador_jogos/modules/game/controllers/game.dart';
 
-enum GameState{
+enum GameState {
   loading,
   games,
 }

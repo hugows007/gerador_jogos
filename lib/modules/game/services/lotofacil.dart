@@ -12,7 +12,7 @@ mixin LotofacilService {
     Timer(const Duration(milliseconds: 300), () {
       _generateRandomGames();
       _generateByLastGames();
-      _generatePadraoX();
+      _generatePadraoXDoisJogos();
       _generateRandomGamesWithLoop();
       _controller.isLoadingGames.value = false;
       _controller.isEmptyGames.value = false;
@@ -137,43 +137,59 @@ mixin LotofacilService {
       }
     }
 
+    for (int i = 0; i < int.parse(_controller.countOfNumbers.value); i++) {
+      int number1 = _controller.random(1, 25);
+
+      while (_controller.randomGamesWithLoop.contains(number1) ||
+          _controller.randomGamesPadraoX.contains(number1)) {
+        if (_controller.randomGamesPadraoX.length >= 9 &&
+            !_controller.randomGamesPadraoX.contains(number1)) {
+          break;
+        }
+        number1 = _controller.random(1, 25);
+      }
+
+      _controller.randomGamesPadraoX.add(number1);
+    }
+
     _controller.randomGamesWithLoop.sort();
     _controller.moreNumbersParImparLastResults.sort();
     _controller.randomGamesLastResults.sort();
     _controller.randomGamesWithPrimos.sort();
     _controller.moreNumbersPrimosLastResults.sort();
     _controller.randomGamesParImpar.sort();
+    _controller.randomGamesPadraoX.sort();
   }
 
-  Future<void> _generatePadraoX() async {
-    _controller.randomGamesPadraoX.add(List.empty(growable: true));
-    _controller.randomGamesPadraoX.add(List.empty(growable: true));
+  Future<void> _generatePadraoXDoisJogos() async {
+    _controller.randomGamesPadraoXDoisJogos.add(List.empty(growable: true));
+    _controller.randomGamesPadraoXDoisJogos.add(List.empty(growable: true));
 
     for (int i = 0; i < int.parse(_controller.countOfNumbers.value); i++) {
       int number = _controller.random(1, 25);
-      while (_controller.randomGamesPadraoX[0].contains(number)) {
+      while (_controller.randomGamesPadraoXDoisJogos[0].contains(number)) {
         number = _controller.random(1, 25);
       }
-      _controller.randomGamesPadraoX[0].add(number);
+      _controller.randomGamesPadraoXDoisJogos[0].add(number);
     }
 
     for (int i = 0; i < int.parse(_controller.countOfNumbers.value); i++) {
       int number1 = _controller.random(1, 25);
 
-      while (_controller.randomGamesPadraoX[0].contains(number1) ||
-          _controller.randomGamesPadraoX[1].contains(number1)) {
-        if (_controller.randomGamesPadraoX[1].length >= 9 &&
-            !_controller.randomGamesPadraoX[1].contains(number1)) {
+      while (_controller.randomGamesPadraoXDoisJogos[0].contains(number1) ||
+          _controller.randomGamesPadraoXDoisJogos[1].contains(number1)) {
+        if (_controller.randomGamesPadraoXDoisJogos[1].length >= 9 &&
+            !_controller.randomGamesPadraoXDoisJogos[1].contains(number1)) {
           break;
         }
         number1 = _controller.random(1, 25);
       }
 
-      _controller.randomGamesPadraoX[1].add(number1);
+      _controller.randomGamesPadraoXDoisJogos[1].add(number1);
     }
 
-    _controller.randomGamesPadraoX[0].sort();
-    _controller.randomGamesPadraoX[1].sort();
+    _controller.randomGamesPadraoXDoisJogos[0].sort();
+    _controller.randomGamesPadraoXDoisJogos[1].sort();
   }
 
   Future<void> _generateByLastGames() async {

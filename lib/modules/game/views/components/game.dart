@@ -58,7 +58,7 @@ class GameComponent extends GetView<GameController> {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                    child: Divider( thickness: 4),
+                    child: Divider(thickness: 4),
                   ),
                 ],
               ),

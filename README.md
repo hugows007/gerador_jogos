@@ -1,10 +1,18 @@
 # Gerador de jogos - Loterias da Caixa
 
-Um projeto desenvolvido para fins de estudo da vertente do Flutter para o contexto WEB.
-
 ## Conceito
 
-O projeto visa gerar alguns jogos 
+Um projeto desenvolvido para fins de estudo da vertente do Flutter para o contexto WEB. Visa gerar jogos para as loterias da caixa mas, por enquanto, apenas padrões de geração de jogos para a Lotofácil.
 
-## Tecnologias
+## Dependências
 
+1. get
+1. responsive_framework
+1. dio
+1. intl
+1. universal_html
+
+## Comandos uteis
+
+- flutter format .
+- flutter pub get

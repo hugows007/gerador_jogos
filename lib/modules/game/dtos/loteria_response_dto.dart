@@ -80,8 +80,7 @@ class LoteriaResponseDto {
     if (json['listaMunicipioUFGanhadores'] != null) {
       listaMunicipioUFGanhadores = <ListaMunicipioUFGanhadores>[];
       json['listaMunicipioUFGanhadores'].forEach((v) {
-        listaMunicipioUFGanhadores!
-            .add(ListaMunicipioUFGanhadores.fromJson(v));
+        listaMunicipioUFGanhadores!.add(ListaMunicipioUFGanhadores.fromJson(v));
       });
     }
     if (json['listaRateioPremio'] != null) {
@@ -148,8 +147,7 @@ class LoteriaResponseDto {
     data['ultimoConcurso'] = ultimoConcurso;
     data['valorArrecadado'] = valorArrecadado;
     data['valorAcumuladoConcurso_0_5'] = valorAcumuladoConcurso05;
-    data['valorAcumuladoConcursoEspecial'] =
-        valorAcumuladoConcursoEspecial;
+    data['valorAcumuladoConcursoEspecial'] = valorAcumuladoConcursoEspecial;
     data['valorAcumuladoProximoConcurso'] = valorAcumuladoProximoConcurso;
     data['valorEstimadoProximoConcurso'] = valorEstimadoProximoConcurso;
     data['valorSaldoReservaGarantidora'] = valorSaldoReservaGarantidora;

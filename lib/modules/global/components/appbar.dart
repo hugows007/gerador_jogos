@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/core/images.dart';
+import 'package:gerador_jogos/core/routes.dart';
 import 'package:get/get.dart';
 
 class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
@@ -39,7 +40,15 @@ class AppBarComponent extends StatelessWidget implements PreferredSizeWidget {
                 image: AssetImage(ImagesUri.loteria),
               ),
             )
-          : null,
+          : InkWell(
+              onTap: () {
+                Get.offAllNamed(Routes.home);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              ),
+            ),
       leadingWidth: 60,
       backgroundColor: Colors.grey,
     );

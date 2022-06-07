@@ -40,11 +40,12 @@ class GameController extends GetxController
     switch (gameSelected) {
       case GlobalConstants.gameLotofacil:
         requestChargeLastResult(Url.urlLotofacil).then((_) {
-          dynamic cookieLastResults = CookieManager.getCookie(GlobalConstants.cookieLastResults);
-          if(cookieLastResults != null){
+          dynamic cookieLastResults =
+              CookieManager.getCookie(GlobalConstants.cookieLastResults);
+          if (cookieLastResults != null) {
             lastResults = List<String>.from(json.decode(cookieLastResults));
             GameState.games.set;
-          }else{
+          } else {
             requestLastResults(loteriaResponseDto!.numero!)
                 .then((_) => GameState.games.set);
           }

@@ -13,8 +13,7 @@ class LotofacilComponent extends GetView<GameController> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-              bottom: 50, left: 20, right: 20),
+          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
             children: const [
               Padding(
@@ -28,7 +27,7 @@ class LotofacilComponent extends GetView<GameController> {
                   ),
                 ),
               ),
-              Divider( thickness: 4),
+              Divider(thickness: 4),
             ],
           ),
         ),
@@ -40,22 +39,8 @@ class LotofacilComponent extends GetView<GameController> {
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
                   generatedGame: controller.randomGames,
-                  subtitle:
-                  'Jogo gerado de forma randômica e simples',
+                  subtitle: 'Jogo gerado de forma randômica e simples',
                   title: 'Jogo randômico',
-                ),
-              ),
-            ),
-            Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(gamesPadding),
-                child: GenerateGameComponent(
-                  generatedGame:
-                  controller.randomGamesWithLoop,
-                  subtitle:
-                  'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop}',
-                  title:
-                  'Jogo randômico com incidência de loop',
                 ),
               ),
             ),
@@ -68,12 +53,10 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame:
-                  controller.randomGamesWithPrimos,
+                  generatedGame: controller.randomGamesWithLoop,
                   subtitle:
-                  'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop} forçando números primos',
-                  title:
-                  'Jogo randômico com incidência de loop com números primos',
+                      'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop}',
+                  title: 'Jogo randômico com incidência de loop',
                 ),
               ),
             ),
@@ -81,20 +64,46 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame:
-                  controller.randomGamesParImpar,
+                  generatedGame: controller.randomGamesPadraoX,
                   subtitle:
-                  'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop}, balanceando impares e pares',
+                      'Jogo gerado de forma randômica, priorizando números que não sairam no jogo randômico com loop de ${controller.loop}',
+                  title: 'Jogo randômico com o padrão cruzado',
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(gamesPadding),
+                child: GenerateGameComponent(
+                  generatedGame: controller.randomGamesWithPrimos,
+                  subtitle:
+                      'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop} forçando números primos',
                   title:
-                  'Jogo randômico com incidência de loop impares e pares',
+                      'Jogo randômico com incidência de loop com números primos',
+                ),
+              ),
+            ),
+            Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(gamesPadding),
+                child: GenerateGameComponent(
+                  generatedGame: controller.randomGamesParImpar,
+                  subtitle:
+                      'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop}, balanceando impares e pares',
+                  title:
+                      'Jogo randômico com incidência de loop impares e pares',
                 ),
               ),
             ),
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(
-              bottom: 50, left: 20, right: 20),
+          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
             children: const [
               Padding(
@@ -108,6 +117,7 @@ class LotofacilComponent extends GetView<GameController> {
                   ),
                 ),
               ),
+              Divider(thickness: 4),
             ],
           ),
         ),
@@ -118,12 +128,10 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame:
-                  controller.randomGamesPadraoX[0],
+                  generatedGame: controller.randomGamesPadraoXDoisJogos[0],
                   subtitle:
-                  'Primeiro jogo gerado de forma randômica para compor o padrão cruzado',
-                  title:
-                  'Jogo randômico com o padrão cruzado - Jogo 1',
+                      'Primeiro jogo gerado de forma randômica para compor o padrão cruzado',
+                  title: 'Jogo randômico com o padrão cruzado - Jogo 1',
                 ),
               ),
             ),
@@ -131,20 +139,17 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame:
-                  controller.randomGamesPadraoX[1],
+                  generatedGame: controller.randomGamesPadraoXDoisJogos[1],
                   subtitle:
-                  'Jogo gerado de forma randômica, priorizando números que não sairam no primeiro jogo',
-                  title:
-                  'Jogo randômico com o padrão cruzado - Jogo 2',
+                      'Jogo gerado de forma randômica, priorizando números que não sairam no primeiro jogo',
+                  title: 'Jogo randômico com o padrão cruzado - Jogo 2',
                 ),
               ),
             ),
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(
-              bottom: 50, left: 20, right: 20),
+          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
             children: const [
               Padding(
@@ -158,7 +163,7 @@ class LotofacilComponent extends GetView<GameController> {
                   ),
                 ),
               ),
-              Divider( thickness: 4),
+              Divider(thickness: 4),
             ],
           ),
         ),
@@ -169,12 +174,10 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame:
-                  controller.randomGamesLastResults,
+                  generatedGame: controller.randomGamesLastResults,
                   subtitle:
-                  'Jogo gerado de forma randômica baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios',
-                  title:
-                  'Jogo randômico em sorteios recentes',
+                      'Jogo gerado de forma randômica baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios',
+                  title: 'Jogo randômico em sorteios recentes',
                 ),
               ),
             ),
@@ -182,20 +185,18 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame: controller
-                      .moreNumbersPrimosLastResults,
+                  generatedGame: controller.moreNumbersPrimosLastResults,
                   subtitle:
-                  'Jogo gerado de forma randômica baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios forçando números primos',
+                      'Jogo gerado de forma randômica baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios forçando números primos',
                   title:
-                  'Jogo com incidência em sorteios recentes com números primos',
+                      'Jogo com incidência em sorteios recentes com números primos',
                 ),
               ),
             ),
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(
-              bottom: 50, left: 20, right: 20),
+          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
             children: const [
               Padding(
@@ -219,12 +220,10 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame:
-                  controller.moreNumbersLastResults,
+                  generatedGame: controller.moreNumbersLastResults,
                   subtitle:
-                  'Jogo gerado baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios',
-                  title:
-                  'Jogo com incidência em sorteios recentes',
+                      'Jogo gerado baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios',
+                  title: 'Jogo com incidência em sorteios recentes',
                 ),
               ),
             ),
@@ -232,12 +231,11 @@ class LotofacilComponent extends GetView<GameController> {
               child: Padding(
                 padding: EdgeInsets.all(gamesPadding),
                 child: GenerateGameComponent(
-                  generatedGame: controller
-                      .moreNumbersParImparLastResults,
+                  generatedGame: controller.moreNumbersParImparLastResults,
                   subtitle:
-                  'Jogo gerado baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios, balanceando impares e pares',
+                      'Jogo gerado baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios, balanceando impares e pares',
                   title:
-                  'Jogo com incidência em sorteios recentes, balanceando impares e pares',
+                      'Jogo com incidência em sorteios recentes, balanceando impares e pares',
                 ),
               ),
             ),

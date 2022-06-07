@@ -1,7 +1,6 @@
 import 'package:universal_html/html.dart' as html;
 
 class CookieManager {
-
   static addToCookie(String key, dynamic value, int ageSeconds) {
     html.document.cookie = "$key=$value; max-age=$ageSeconds; path=/;";
   }
