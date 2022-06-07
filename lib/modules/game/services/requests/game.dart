@@ -11,29 +11,18 @@ import 'package:gerador_jogos/modules/global/constants/global.dart';
 mixin GameRequest {
   GameController get _controller => GameController.instance;
 
-  _header() {
-    return {
-      HttpHeaders.contentTypeHeader: 'application/json',
-      HttpHeaders.accessControlAllowOriginHeader: 'true',
-      HttpHeaders.accessControlAllowMethodsHeader: 'POST, GET, OPTIONS, DELETE',
-      HttpHeaders.accessControlRequestHeadersHeader: 'origin, x-requested-with',
-      'Origin': 'https://servicebus2.caixa.gov.br'
-    };
-  }
-
   Future<void> requestChargeLastResult(String url) async {
     Response response =
-        await _controller.client.get(url, options: Options(headers: _header()));
-    _controller.loteriaResponseDto = LoteriaResponseDto.fromJson(response.data);
+        await _controller.client.get(url);
+    _controller.loteriaResponseDto = LoteriaResponseDto.fromJson(jsonDecode(response.data['contents']));
   }
 
   Future<void> requestLastResults(num lastGameNumber) async {
     for (int i = 1; i <= _controller.lastGamesToProcess; i++) {
       Response response = await _controller.client.get(
-          '${Url.urlLotofacil}/$lastGameNumber',
-          options: Options(headers: _header()));
+          '${Url.urlLotofacil}/$lastGameNumber');
       for (var element
-          in LoteriaResponseDto.fromJson(response.data).listaDezenas!) {
+          in LoteriaResponseDto.fromJson(jsonDecode(response.data['contents'])).listaDezenas!) {
         _controller.lastResults.add(element);
       }
 
