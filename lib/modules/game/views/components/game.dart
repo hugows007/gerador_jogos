@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/modules/game/controllers/game.dart';
-import 'package:gerador_jogos/modules/game/views/components/generated.dart';
-import 'package:gerador_jogos/modules/game/views/components/result.dart';
+import 'package:gerador_jogos/modules/game/views/components/widget/result.dart';
 import 'package:gerador_jogos/modules/global/components/loading.dart';
 import 'package:get/get.dart';
 
@@ -59,7 +58,7 @@ class GameComponent extends GetView<GameController> {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                    child: Divider(),
+                    child: Divider( thickness: 4),
                   ),
                 ],
               ),
@@ -71,87 +70,7 @@ class GameComponent extends GetView<GameController> {
                     ? const LoadingComponent()
                     : controller.isEmptyGames.value
                         ? const SizedBox()
-                        : Column(
-                            children: [
-                              GenerateGameComponent(
-                                generatedGame: controller.randomGames,
-                                subtitle:
-                                    'Jogo gerado de forma randômica e simples',
-                                title: 'Jogo randômico',
-                              ),
-                              GenerateGameComponent(
-                                generatedGame: controller.randomGamesWithLoop,
-                                subtitle:
-                                    'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop}',
-                                title: 'Jogo randômico com incidência de loop',
-                              ),
-                              GenerateGameComponent(
-                                generatedGame: controller.randomGamesWithPrimos,
-                                subtitle:
-                                    'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop} forçando números primos',
-                                title:
-                                    'Jogo randômico com incidência de loop com números primos',
-                              ),
-                              GenerateGameComponent(
-                                generatedGame: controller.randomGamesParImpar,
-                                subtitle:
-                                    'Jogo gerado baseado nos números que mais saem em um loop de ${controller.loop}, balanceando impares e pares',
-                                title:
-                                    'Jogo randômico com incidência de loop impares e pares',
-                              ),
-                              GenerateGameComponent(
-                                generatedGame:
-                                    controller.randomGamesLastResults,
-                                subtitle:
-                                    'Jogo gerado de forma randômica baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios',
-                                title: 'Jogo randômico em sorteios recentes',
-                              ),
-                              GenerateGameComponent(
-                                generatedGame:
-                                    controller.moreNumbersPrimosLastResults,
-                                subtitle:
-                                    'Jogo gerado de forma randômica baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios forçando números primos',
-                                title:
-                                    'Jogo com incidência em sorteios recentes com números primos',
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    bottom: 50, left: 20, right: 20),
-                                child: Column(
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.all(10.0),
-                                      child: Text(
-                                        'Jogos com mudanças apenas com novos sorteios',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.red),
-                                      ),
-                                    ),
-                                    Divider(),
-                                  ],
-                                ),
-                              ),
-                              GenerateGameComponent(
-                                generatedGame:
-                                    controller.moreNumbersLastResults,
-                                subtitle:
-                                    'Jogo gerado baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios',
-                                title:
-                                    'Jogo com incidência em sorteios recentes',
-                              ),
-                              GenerateGameComponent(
-                                generatedGame:
-                                    controller.moreNumbersParImparLastResults,
-                                subtitle:
-                                    'Jogo gerado baseado nos números que mais saíram nos últimos ${controller.lastGamesToProcess} sorteios, balanceando impares e pares',
-                                title:
-                                    'Jogo com incidência em sorteios recentes, balanceando impares e pares',
-                              ),
-                            ],
-                          ),
+                        : controller.getGameComponent,
               ),
             ],
           ),

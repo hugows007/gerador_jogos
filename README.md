@@ -1,16 +1,10 @@
-# gerador_jogos
+# Gerador de jogos - Loterias da Caixa
 
-A new Flutter project.
+Um projeto desenvolvido para fins de estudo da vertente do Flutter para o contexto WEB.
 
-## Getting Started
+## Conceito
 
-This project is a starting point for a Flutter application.
+O projeto visa gerar alguns jogos 
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologias
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

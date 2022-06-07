@@ -12,6 +12,7 @@ mixin LotofacilService {
     Timer(const Duration(milliseconds: 300), () {
       _generateRandomGames();
       _generateByLastGames();
+      _generatePadraoX();
       _generateRandomGamesWithLoop();
       _controller.isLoadingGames.value = false;
       _controller.isEmptyGames.value = false;
@@ -142,6 +143,37 @@ mixin LotofacilService {
     _controller.randomGamesWithPrimos.sort();
     _controller.moreNumbersPrimosLastResults.sort();
     _controller.randomGamesParImpar.sort();
+  }
+
+  Future<void> _generatePadraoX() async {
+    _controller.randomGamesPadraoX.add(List.empty(growable: true));
+    _controller.randomGamesPadraoX.add(List.empty(growable: true));
+
+    for (int i = 0; i < int.parse(_controller.countOfNumbers.value); i++) {
+      int number = _controller.random(1, 25);
+      while (_controller.randomGamesPadraoX[0].contains(number)) {
+        number = _controller.random(1, 25);
+      }
+      _controller.randomGamesPadraoX[0].add(number);
+    }
+
+    for (int i = 0; i < int.parse(_controller.countOfNumbers.value); i++) {
+      int number1 = _controller.random(1, 25);
+
+      while (_controller.randomGamesPadraoX[0].contains(number1) ||
+          _controller.randomGamesPadraoX[1].contains(number1)) {
+        if (_controller.randomGamesPadraoX[1].length >= 9 &&
+            !_controller.randomGamesPadraoX[1].contains(number1)) {
+          break;
+        }
+        number1 = _controller.random(1, 25);
+      }
+
+      _controller.randomGamesPadraoX[1].add(number1);
+    }
+
+    _controller.randomGamesPadraoX[0].sort();
+    _controller.randomGamesPadraoX[1].sort();
   }
 
   Future<void> _generateByLastGames() async {

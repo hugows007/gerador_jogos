@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/core/images.dart';
 import 'package:gerador_jogos/modules/game/controllers/game.dart';
+import 'package:gerador_jogos/modules/game/views/components/widget/lotofacil.dart';
 import 'package:gerador_jogos/modules/global/constants/global.dart';
 
 mixin GameHelper {
   GameController get _controller => GameController.instance;
+
+  Widget get getGameComponent {
+    switch (_controller.gameSelected) {
+      case GlobalConstants.gameLotofacil:
+        return const LotofacilComponent();
+      default:
+        return const SizedBox();
+    }
+  }
 
   String? get buildImageGameSelected {
     switch (_controller.gameSelected) {
@@ -86,7 +96,7 @@ mixin GameHelper {
         ),
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          child: Divider(),
+          child: SizedBox(),
         ),
       ],
     );

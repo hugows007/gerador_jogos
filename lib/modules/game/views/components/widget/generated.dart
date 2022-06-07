@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/modules/game/controllers/game.dart';
-import 'package:gerador_jogos/modules/game/views/components/result.dart';
+import 'package:gerador_jogos/modules/game/views/components/widget/result.dart';
 import 'package:get/get.dart';
 
 class GenerateGameComponent extends GetView<GameController> {
@@ -40,6 +40,7 @@ class GenerateGameComponent extends GetView<GameController> {
             ),
           ),
           Wrap(
+            alignment: WrapAlignment.center,
             children: generatedGame
                 .map((value) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
