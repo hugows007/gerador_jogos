@@ -4,6 +4,7 @@ import 'package:gerador_jogos/global_components/footer.dart';
 import 'package:gerador_jogos/global_components/loading.dart';
 import 'package:gerador_jogos/modules/game/controller.dart';
 import 'package:gerador_jogos/modules/game/pages/components/game.dart';
+import 'package:gerador_jogos/modules/game/pages/components/loading_games.dart';
 import 'package:gerador_jogos/modules/game/states.dart';
 import 'package:get/get.dart';
 
@@ -17,27 +18,7 @@ class GamePage extends GetView<GameController> {
       bottomSheet: const FooterComponent(),
       body: Obx(
         () => controller.gameState.value != GameState.games
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Obx(
-                        () => Text(
-                          controller.loadingGamesText.value,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  if (controller.gameState.value != GameState.error)
-                    const LoadingComponent(),
-                ],
-              )
+            ? const LoadingGamesComponent()
             : const GameComponent(),
       ),
     );
