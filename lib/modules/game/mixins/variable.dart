@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:gerador_jogos/modules/game/dtos/loteria_response_dto.dart';
-import 'package:gerador_jogos/modules/game/states/game.dart';
+import 'package:gerador_jogos/modules/game/states.dart';
 import 'package:get/get.dart';
 
 mixin GameVariable {

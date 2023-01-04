@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gerador_jogos/modules/game/controllers/game.dart';
-import 'package:gerador_jogos/modules/game/views/components/widget/generated.dart';
+import 'package:gerador_jogos/modules/game/controller.dart';
+import 'package:gerador_jogos/modules/game/pages/components/widget/generated.dart';
 import 'package:get/get.dart';
 
 class LotofacilComponent extends GetView<GameController> {

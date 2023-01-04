@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:gerador_jogos/modules/game/controllers/game.dart';
+import 'package:gerador_jogos/modules/game/controller.dart';
 
 mixin LotofacilService {
   GameController get _controller => GameController.instance;

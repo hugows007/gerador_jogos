@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gerador_jogos/modules/global/controllers/global.dart';
-import 'package:gerador_jogos/modules/global/views/components/appbar.dart';
-import 'package:gerador_jogos/modules/global/views/components/footer.dart';
+import 'package:gerador_jogos/modules/global/controller.dart';
+import 'package:gerador_jogos/global_components/appbar.dart';
+import 'package:gerador_jogos/global_components/footer.dart';
 import 'package:get/get.dart';
 
-class VersionView extends GetView<GlobalController> {
-  const VersionView({Key? key}) : super(key: key);
+class VersionPage extends GetView<GlobalController> {
+  const VersionPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

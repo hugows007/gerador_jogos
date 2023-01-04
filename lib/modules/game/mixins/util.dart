@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:gerador_jogos/modules/game/controllers/game.dart';
+import 'package:gerador_jogos/modules/game/controller.dart';
 
 mixin GameUtil {
   GameController get _controller => GameController.instance;

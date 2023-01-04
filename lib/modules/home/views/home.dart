@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/core/images.dart';
 import 'package:gerador_jogos/core/routes.dart';
-import 'package:gerador_jogos/modules/global/views/components/appbar.dart';
-import 'package:gerador_jogos/modules/global/views/components/footer.dart';
+import 'package:gerador_jogos/global_components/appbar.dart';
+import 'package:gerador_jogos/global_components/footer.dart';
 import 'package:gerador_jogos/modules/global/constants/global.dart';
 import 'package:gerador_jogos/modules/home/views/components/option.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

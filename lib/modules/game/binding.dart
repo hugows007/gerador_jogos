@@ -1,4 +1,4 @@
-import 'package:gerador_jogos/modules/game/controllers/game.dart';
+import 'package:gerador_jogos/modules/game/controller.dart';
 import 'package:get/get.dart';
 
 class GameBinding implements Bindings {

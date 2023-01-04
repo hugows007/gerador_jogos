@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/core/routes.dart';
-import 'package:gerador_jogos/modules/global/bindings/global.dart';
+import 'package:gerador_jogos/modules/global/binding.dart';
 import 'package:get/get.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 

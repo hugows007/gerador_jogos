@@ -1,6 +1,6 @@
-import 'package:gerador_jogos/modules/game/bindings/game.dart';
-import 'package:gerador_jogos/modules/game/views/game.dart';
-import 'package:gerador_jogos/modules/global/views/version.dart';
+import 'package:gerador_jogos/modules/game/binding.dart';
+import 'package:gerador_jogos/modules/game/pages/game.dart';
+import 'package:gerador_jogos/modules/global/pages/version.dart';
 import 'package:gerador_jogos/modules/home/views/home.dart';
 import 'package:get/get.dart';
 
@@ -13,16 +13,16 @@ class Routes {
     return [
       GetPage(
         name: home,
-        page: () => const HomeView(),
+        page: () => const HomePage(),
       ),
       GetPage(
         name: games,
-        page: () => const GameView(),
+        page: () => const GamePage(),
         binding: GameBinding(),
       ),
       GetPage(
         name: version,
-        page: () => const VersionView(),
+        page: () => const VersionPage(),
       ),
     ];
   }

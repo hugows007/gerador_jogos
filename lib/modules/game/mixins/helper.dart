@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/core/images.dart';
-import 'package:gerador_jogos/modules/game/controllers/game.dart';
-import 'package:gerador_jogos/modules/game/views/components/widget/lotofacil.dart';
+import 'package:gerador_jogos/modules/game/controller.dart';
+import 'package:gerador_jogos/modules/game/pages/components/widget/lotofacil.dart';
 import 'package:gerador_jogos/modules/global/constants/global.dart';
 
 mixin GameHelper {

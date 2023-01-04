@@ -4,20 +4,20 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:gerador_jogos/core/cookie_manager.dart';
 import 'package:gerador_jogos/core/url.dart';
-import 'package:gerador_jogos/modules/game/controllers/game.dart';
+import 'package:gerador_jogos/modules/game/controller.dart';
 import 'package:gerador_jogos/modules/game/dtos/loteria_response_dto.dart';
 import 'package:gerador_jogos/modules/global/constants/global.dart';
 
-mixin GameRequest {
+mixin GameApi {
   GameController get _controller => GameController.instance;
 
-  Future<void> requestChargeLastResult(String url) async {
+  Future<void> chargeLastResult(String url) async {
     Response response =
         await _controller.client.get(url);
-    _controller.loteriaResponseDto = LoteriaResponseDto.fromJson(jsonDecode(response.data['contents']));
+    _controller.loteriaResponseDto = LoteriaResponseDto.fromJson(jsonDecode(response.data));
   }
 
-  Future<void> requestLastResults(num lastGameNumber) async {
+  Future<void> chargeLastResults(num lastGameNumber) async {
     for (int i = 1; i <= _controller.lastGamesToProcess; i++) {
       Response response = await _controller.client.get(
           '${Url.urlLotofacil}/$lastGameNumber');

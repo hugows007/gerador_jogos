@@ -1,4 +1,4 @@
-import 'package:gerador_jogos/modules/global/variables/global.dart';
+import 'package:gerador_jogos/modules/global/mixins/variables.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 

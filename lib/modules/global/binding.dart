@@ -1,4 +1,4 @@
-import 'package:gerador_jogos/modules/global/controllers/global.dart';
+import 'package:gerador_jogos/modules/global/controller.dart';
 import 'package:get/get.dart';
 
 class GlobalBinding implements Bindings {
