@@ -16,8 +16,28 @@ class GamePage extends GetView<GameController> {
       appBar: const AppBarComponent(),
       bottomSheet: const FooterComponent(),
       body: Obx(
-        () => controller.gameState.value == GameState.loading
-            ? const LoadingComponent()
+        () => controller.gameState.value != GameState.games
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Obx(
+                        () => Text(
+                          controller.loadingGamesText.value,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  if (controller.gameState.value != GameState.error)
+                    const LoadingComponent(),
+                ],
+              )
             : const GameComponent(),
       ),
     );

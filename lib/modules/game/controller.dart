@@ -39,20 +39,35 @@ class GameController extends GetxController
 
     switch (gameSelected) {
       case GlobalConstants.gameLotofacil:
-        chargeLastResult(Url.urlLotofacil).then((_) {
-          dynamic cookieLastResults =
-              CookieManager.getCookie(GlobalConstants.cookieLastResults);
-          if (cookieLastResults != null) {
-            lastResults = List<String>.from(json.decode(cookieLastResults));
-            GameState.games.set;
-          } else {
-            chargeLastResults(loteriaResponseDto!.numero!)
-                .then((_) => GameState.games.set);
-          }
-        });
+        _loadLotofacil;
         break;
       default:
         null;
     }
+  }
+
+  get _loadLotofacil {
+    loadingGamesText.value = 'Carregando último resultado...';
+    chargeLastResult(Url.urlLotofacil).then((_) {
+      loadingGamesText.value = 'Concluído!';
+      dynamic cookieLastResults =
+      CookieManager.getCookie(GlobalConstants.cookieLastResults);
+      if (cookieLastResults != null) {
+        lastResults = List<String>.from(json.decode(cookieLastResults));
+        GameState.games.set;
+      } else {
+        loadingGamesText.value = 'Carregando jogos... aguarde!';
+        Future.delayed(const Duration(seconds: 10), () => loadingGamesText.value = 'São muitos jogos... mas estamos terminando!');
+        Future.delayed(const Duration(seconds: 20), () => loadingGamesText.value = 'Caramba... não deveria demorar tanto... só mais um instante :)');
+        chargeLastResults(loteriaResponseDto!.numero!)
+            .then((_) => GameState.games.set).catchError((e, s) {
+          loadingGamesText.value = 'Ocorreu um erro ao carregar os jogos.';
+          GameState.error.set;
+        });
+      }
+    }).catchError((e, s) {
+      loadingGamesText.value = 'Ocorreu um erro ao carregar último resultado.';
+      GameState.error.set;
+    });
   }
 }

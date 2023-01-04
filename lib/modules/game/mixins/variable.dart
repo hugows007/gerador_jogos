@@ -17,6 +17,7 @@ mixin GameVariable {
   final gameState = GameState.loading.obs;
   final countOfNumbers = '0'.obs;
   final isLoadingGames = false.obs;
+  final loadingGamesText = ''.obs;
   final isEmptyGames = true.obs;
 
   RxList<int> randomGames = RxList.empty(growable: true);

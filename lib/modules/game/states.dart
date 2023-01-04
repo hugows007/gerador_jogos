@@ -3,6 +3,7 @@ import 'package:gerador_jogos/modules/game/controller.dart';
 enum GameState {
   loading,
   games,
+  error,
 }
 
 extension GameStateExtension on GameState {

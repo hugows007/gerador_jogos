@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:gerador_jogos/core/cookie_manager.dart';
@@ -14,15 +13,17 @@ mixin GameApi {
   Future<void> chargeLastResult(String url) async {
     Response response =
         await _controller.client.get(url);
-    _controller.loteriaResponseDto = LoteriaResponseDto.fromJson(jsonDecode(response.data));
+    _controller.loteriaResponseDto = LoteriaResponseDto.fromJson(response.data);
   }
 
   Future<void> chargeLastResults(num lastGameNumber) async {
     for (int i = 1; i <= _controller.lastGamesToProcess; i++) {
-      Response response = await _controller.client.get(
-          '${Url.urlLotofacil}/$lastGameNumber');
+      Response response =
+      await _controller.client.get('${Url.urlLotofacil}/$lastGameNumber');
       for (var element
-          in LoteriaResponseDto.fromJson(jsonDecode(response.data['contents'])).listaDezenas!) {
+      in LoteriaResponseDto
+          .fromJson(response.data)
+          .listaDezenas!) {
         _controller.lastResults.add(element);
       }
 
