@@ -11,18 +11,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppBarComponent(
+    return const Scaffold(
+      appBar: AppBarComponent(
         title: 'Gerador de jogos lotéricos',
         showLogo: true,
       ),
-      bottomSheet: const FooterComponent(),
+      bottomSheet: FooterComponent(),
       body: Center(
         child: Column(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
+              children: [
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: Image(
@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const OptionComponent(
+            OptionComponent(
               optionTitle: 'Gerar para Lotofácil',
               optionGame: GlobalConstants.gameLotofacil,
               imageUri: ImagesUri.lotofacil,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerador_jogos/global_components/appbar.dart';
 import 'package:gerador_jogos/global_components/footer.dart';
-import 'package:gerador_jogos/global_components/loading.dart';
 import 'package:gerador_jogos/modules/game/controller.dart';
 import 'package:gerador_jogos/modules/game/pages/components/game.dart';
 import 'package:gerador_jogos/modules/game/pages/components/loading_games.dart';

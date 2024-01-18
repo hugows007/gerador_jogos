@@ -27,9 +27,10 @@ class AppRunner extends StatelessWidget {
         unselectedWidgetColor: const Color(0xFF0074E4),
         primaryColor: const Color(0xFF0074E4),
         primaryColorDark: const Color(0xFF455A64),
-        backgroundColor: const Color(0xFFF2F2F2),
-        errorColor: Colors.red,
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: Colors.white)
+            .copyWith(background: const Color(0xFFF2F2F2))
+            .copyWith(error: Colors.red),
       ),
       locale: const Locale('pt', 'BR'),
       getPages: Routes.routes,

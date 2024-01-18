@@ -12,10 +12,10 @@ class LotofacilComponent extends GetView<GameController> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
+        const Padding(
+          padding: EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
@@ -102,10 +102,10 @@ class LotofacilComponent extends GetView<GameController> {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
+        const Padding(
+          padding: EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
@@ -148,10 +148,10 @@ class LotofacilComponent extends GetView<GameController> {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
+        const Padding(
+          padding: EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(
@@ -195,10 +195,10 @@ class LotofacilComponent extends GetView<GameController> {
             ),
           ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 50, left: 20, right: 20),
+        const Padding(
+          padding: EdgeInsets.only(bottom: 50, left: 20, right: 20),
           child: Column(
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Text(

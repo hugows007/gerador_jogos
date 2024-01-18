@@ -88,7 +88,7 @@ mixin GameHelper {
           height: 50,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: const Color(0xff277eb6),
+                backgroundColor: const Color(0xff277eb6),
                 textStyle: const TextStyle(fontSize: 18)),
             onPressed: () => callback!(),
             child: const Text('Gerar!'),
