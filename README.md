@@ -13,7 +13,7 @@ Um projeto desenvolvido para fins de estudo da vertente do Flutter para o contex
 
 ## Comandos uteis
 
-- flutter build web
+- flutter build web & rd /s /q "docs" & mkdir "docs" & xcopy /E /Y "build\web\*" "docs\"
 - flutter format .
 - flutter pub get
 
